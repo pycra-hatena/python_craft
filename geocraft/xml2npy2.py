@@ -10,7 +10,6 @@ GEO_DIR = "FG-GML-{0:04d}-{1:02d}-DEM5A"
 GEO_XML_20161001 = "FG-GML-{0:04d}-{1:02d}-{2:02d}-DEM5A-20161001.xml"
 GEO_XML_20170202 = "FG-GML-{0:04d}-{1:02d}-{2:02d}-DEM5A-20170202.xml"
 
-NPY_DIR = "/Users/pycra/Desktop/NPY_DATA"
 NPY_2ND_FILE = "npy{0}-{1:04d}-{2:02d}.npy"
 NPY_3RD_FILE = "npy{0}-{1:04d}-{2:02d}-{3:02d}.npy"
 
@@ -119,11 +118,11 @@ if mesh3 == -1:
             syarray = sxarray
         else:
             syarray = np.concatenate((sxarray, syarray), axis=0)
-    np.save(NPY_DIR+"/"+NPY_2ND_FILE.format('data', mesh1, mesh2), yarray)
-    np.save(NPY_DIR+"/"+NPY_2ND_FILE.format('surf', mesh1, mesh2), syarray)
+    np.save(nd.NPY_DIR+"/"+NPY_2ND_FILE.format('data', mesh1, mesh2), yarray)
+    np.save(nd.NPY_DIR+"/"+NPY_2ND_FILE.format('surf', mesh1, mesh2), syarray)
 else:
     (sarray, yarray) = xml2array(mesh1, mesh2, mesh3)
-    np.save(NPY_DIR+"/"+NPY_3RD_FILE.format('data', mesh1, mesh2, mesh3), yarray)
-    np.save(NPY_DIR+"/"+NPY_3RD_FILE.format('surf', mesh1, mesh2, mesh3), sarray)
+    np.save(nd.NPY_DIR+"/"+NPY_3RD_FILE.format('data', mesh1, mesh2, mesh3), yarray)
+    np.save(nd.NPY_DIR+"/"+NPY_3RD_FILE.format('surf', mesh1, mesh2, mesh3), sarray)
 
-print(yarray.shape)
+#print(yarray.shape)
